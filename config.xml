@@ -1,0 +1,25 @@
+<config>
+    <file
+            source_path="C:/test_source_folder"
+            destination_path="C:/test_destination_folder"
+            file_name="test_source_file.txt"
+    />
+    <file
+            source_path="D:/source_folder_not_exists"
+            destination_path="D:/destination_folder_not_exists"
+            file_name="source_file_not_exists.txt"
+    />
+    <data
+            info_attr_1="some data"
+            info_attr_2="another data"
+    />
+    <file
+            source_path=""
+            file_name="another_test_file.txt"
+     />
+    <file
+            source_path="C:/test_source_folder"
+            destination_path="//fs-srv-2/Public/SPb/Склад/Куликов_АА"
+            file_name="test_source_file.txt"
+    />
+</config>
