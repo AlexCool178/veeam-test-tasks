@@ -49,7 +49,7 @@ def copy_files(valid_tags):
                     if os.path.isfile(source):
                         try:
                             shutil.copyfile(source, destination)
-                            log.info(f'Successfully copied file {params_to_execute[2]}')
+                            log.info('Successfully copied file %s', params_to_execute[2])
                         except PermissionError as e:
                             log.info(str(e))
                     else:
