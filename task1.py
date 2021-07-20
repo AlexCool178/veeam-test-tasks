@@ -18,7 +18,7 @@ def parse_config_file(config_filename):
         xml_tree = ETree.parse(config_filename)
         return xml_tree
     except FileNotFoundError:
-        log.info('Config file not found, check filename or path. Script terminated.')
+        log.error('Config file not found, check filename or path. Script terminated.')
         sys.exit('Config file not found, check filename or path. Script terminated.')
 
 
@@ -28,7 +28,7 @@ def get_file_tags(xml_tree):
     if file_tags:
         return file_tags
     else:
-        log.info('Tags <file> not found in config file. Script terminated.')
+        log.warning('Tags <file> not found in config file. Script terminated.')
         sys.exit('Tags <file> not found in config file. Script terminated.')
 
 
@@ -51,17 +51,17 @@ def copy_files(valid_tags):
                             shutil.copyfile(source, destination)
                             log.info('Successfully copied file %s', params_to_execute[2])
                         except PermissionError as e:
-                            log.info(str(e))
+                            log.error(str(e))
                     else:
-                        log.info('Source file not found')
+                        log.error('Source file not found')
                         pass
                 else:
-                    log.info('Destination folder not found')
+                    log.error('Destination folder not found')
                     pass
             else:
-                log.info('Source folder not found')
+                log.error('Source folder not found')
     else:
-        log.info('No valid tags in config file to operate. Script terminated.')
+        log.warning('No valid tags in config file to operate. Script terminated.')
 
 
 if __name__ == '__main__':
